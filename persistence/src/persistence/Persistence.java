@@ -4,6 +4,8 @@
  */
 package persistence;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Yuneider
@@ -14,23 +16,27 @@ public class Persistence {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String name = "data.bin";
-        
-//        ScoreController sc = new ScoreController();
-//        Persistencia p = new Persistencia(name);
-//        
-//        for(int i=1;i<=10;i++){
-//            sc.insertScore(i);
-//        }
-//        
-//        p.setObject(sc);
-//        p.writteObject();
-        
+        String op = "", name = "data.bin";
 
-        Persistencia p = new Persistencia(name);
-        ScoreController sc = (ScoreController) p.getObject();
-        sc.showSocore();
-        System.out.println("test");
+        op = JOptionPane.showInputDialog(null, "1 to writte, 2 to read");
+        if (op.equals("1")) {
+            ScoreController sc = new ScoreController();
+            Persistencia p = new Persistencia(name);
+            String size = JOptionPane.showInputDialog(null, "¿How many?");
+            for (int i = 0; i < Integer.parseInt(size); i++) {
+                String score = JOptionPane.showInputDialog(null, "Score");
+                sc.insertScore(Integer.parseInt(score));
+            }
+            p.setObject(sc);
+            p.writteObject();
+        }
+
+        if (op.equals("2")) {
+            Persistencia p = new Persistencia(name);
+            ScoreController sc = (ScoreController) p.getObject();
+            sc.showSocore();
+        }
+
     }
 
 }
