@@ -14,8 +14,10 @@ public class Persistence {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String name = "data.bin";
+        
 //        ScoreController sc = new ScoreController();
-//        Persistencia p = new Persistencia("data.tmp");
+//        Persistencia p = new Persistencia(name);
 //        
 //        for(int i=1;i<=10;i++){
 //            sc.insertScore(i);
@@ -25,7 +27,7 @@ public class Persistence {
 //        p.writteObject();
         
 
-        Persistencia p = new Persistencia("data.tmp");
+        Persistencia p = new Persistencia(name);
         ScoreController sc = (ScoreController) p.getObject();
         sc.showSocore();
         System.out.println("test");

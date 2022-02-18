@@ -17,19 +17,13 @@ import java.io.ObjectOutputStream;
  */
 public class Persistencia {
     
+    private String fileName;
     private ObjectOutputStream os;
     private ObjectInputStream is;
     private Object object;
     
     public Persistencia(String fileName){
-        try {
-            os = new ObjectOutputStream(new FileOutputStream(fileName));
-            is = new ObjectInputStream(new FileInputStream(fileName));
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex){
-            ex.printStackTrace();
-        }
+        this.fileName = fileName;
     }
     
     public void setObject(Object object){
@@ -43,6 +37,7 @@ public class Persistencia {
     
     public void writteObject(){
         try {
+            os = new ObjectOutputStream(new FileOutputStream(fileName));
             os.writeObject(this.object);
             os.close();
         } catch (IOException ex) {
@@ -52,9 +47,12 @@ public class Persistencia {
     
     private void readObject(){
         try {
+            is = new ObjectInputStream(new FileInputStream(fileName));
             object = is.readObject();
             is.close();
-        } catch (ClassNotFoundException | IOException ex) {
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex){
             ex.printStackTrace();
         }
     }
