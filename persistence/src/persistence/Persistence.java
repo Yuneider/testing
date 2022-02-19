@@ -16,9 +16,10 @@ public class Persistence {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String op = "", name = "data.bin";
+        String name = "data.bin";
 
-        op = JOptionPane.showInputDialog(null, "1 to writte, 2 to read");
+        String op = JOptionPane.showInputDialog(null, "1 to writte, 2 to read");
+        
         if (op.equals("1")) {
             ScoreController sc = new ScoreController();
             Persistencia p = new Persistencia(name);

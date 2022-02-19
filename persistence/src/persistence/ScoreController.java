@@ -5,7 +5,6 @@
 package persistence;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 

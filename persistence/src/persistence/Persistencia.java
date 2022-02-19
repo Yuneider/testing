@@ -16,7 +16,7 @@ import java.io.ObjectOutputStream;
  */
 public class Persistencia {
     
-    private String fileName;
+    private final String fileName;
     private ObjectOutputStream os;
     private ObjectInputStream is;
     private Object object;
