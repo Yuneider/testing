@@ -5,6 +5,7 @@
 package persistence;
 
 import java.io.Serializable;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,9 +49,7 @@ public class ScoreController implements Serializable{
     }
     
     public void showSocore(){
-        for(int i=0;i<score.length;i++){
-            System.out.println(score[i]);
-        }
+        JOptionPane.showMessageDialog(null, score, "Score", 0);
     }
     
 }
