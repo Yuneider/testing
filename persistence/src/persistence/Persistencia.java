@@ -5,7 +5,6 @@
 package persistence;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -17,7 +16,7 @@ import java.io.ObjectOutputStream;
  */
 public class Persistencia {
     
-    private String fileName;
+    private final String fileName;
     private ObjectOutputStream os;
     private ObjectInputStream is;
     private Object object;

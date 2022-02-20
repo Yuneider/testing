@@ -5,6 +5,7 @@
 package persistence;
 
 import java.io.Serializable;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +27,14 @@ public class ScoreController implements Serializable{
         }
     }
     
+    public String[] string(){
+        String[] arr = new String[score.length];
+        for(int i=0;i<score.length;i++){
+            arr[i]=String.valueOf(score[i]);
+        }
+        return arr;
+    }
+    
     public void insertScore(int score){
         for(int i=0;i<this.score.length;i++){
             if(score > this.score[i]){
@@ -39,17 +48,14 @@ public class ScoreController implements Serializable{
                         this.score[j] = aux;
                         aux = x;
                     }
+                    score=0;
                 }    
             }
         }
     }
     
-    private void orderScore(){
-    
-    }
-    
-    public void showSocore(){
-        JOptionPane.showMessageDialog(null, score, "Score", 0);
+    public void showScore(){
+        JOptionPane.showMessageDialog(null, new JList(string()));
     }
     
 }
