@@ -54,7 +54,7 @@ public class ScoreController implements Serializable{
         }
     }
     
-    public void showSocore(){
+    public void showScore(){
         JOptionPane.showMessageDialog(null, new JList(string()));
     }
     
